@@ -10,7 +10,7 @@ public class Test {
 		
 			Biblioteca b = new Biblioteca();
 			controladorPrincipal cp = new controladorPrincipal(new vistaPrincipal(),b);
-			cp.go();
+			 cp.go();
 	}
 	
 }
