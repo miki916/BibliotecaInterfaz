@@ -1,28 +1,35 @@
 package controlador;
 
 import java.awt.Color;
+import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 import clases.*;
-import vista.vistaLibros;
 import vista.vistaPrincipal;
+import vista.vistaTables;
 
 public class controladorPrincipal implements ActionListener{
 	
 	private vistaPrincipal view;
 	private Biblioteca biblioteca;	
-	private vistaLibros viewLibros;
+	private vistaTables viewTables;
+	private LibrosTableModel mtmLibros;
+	private SociosTableModel mtmSocios;
 	
 	public controladorPrincipal(vistaPrincipal view, Biblioteca biblioteca) {
 		super();
 		this.view = view;
 		this.biblioteca = biblioteca;
-		this.viewLibros = new vistaLibros();
+		viewTables = new vistaTables();
+
 		inicializar();
 		
 	}
@@ -48,6 +55,8 @@ public class controladorPrincipal implements ActionListener{
 		view.getBtnCargarLibros().addActionListener(this);
 		view.getBtnGuardarLibros().addActionListener(this);
 		view.getBtnMostrarLibros().addActionListener(this);
+		view.getBtnMostrarSocios().addActionListener(this);
+
 
 
 		view.getBtnAñadirLibros().setActionCommand("Añadir Libros");
@@ -61,6 +70,8 @@ public class controladorPrincipal implements ActionListener{
 		view.getBtnCargarLibros().setActionCommand("Cargar Libros");
 		view.getBtnGuardarLibros().setActionCommand("Guardar Libros");
 		view.getBtnMostrarLibros().setActionCommand("Mostrar Libros");
+		view.getBtnMostrarSocios().setActionCommand("Mostrar Socios");
+
 	}	
 
 	@Override
@@ -110,7 +121,11 @@ public class controladorPrincipal implements ActionListener{
 			
 		}else if(e.getActionCommand().equals("Mostrar Libros")) {
 			
-			viewLibros.setVisible(true);
+			mostrarTables("Libros");
+			
+		}else if(e.getActionCommand().equals("Mostrar Socios")) {
+			
+			mostrarTables("Socios");
 			
 		}
 		
@@ -120,6 +135,42 @@ public class controladorPrincipal implements ActionListener{
 
 
 	
+
+	private void mostrarTables(String value) {
+		// TODO Auto-generated method stub
+		
+		if(!viewTables.isVisible()) {
+			
+			
+			viewTables.setVisible(true);
+			
+			if(value.equals("Libros")) {
+				
+				mtmLibros = new LibrosTableModel(biblioteca.getLibros());
+				viewTables.getTable().setModel(mtmLibros);
+				
+			}else {
+				
+				mtmSocios = new SociosTableModel(biblioteca.getSocios());
+				viewTables.getTable().setModel(mtmSocios);
+				
+				
+			}
+				
+			
+			
+		}else {
+			
+			
+		}
+		
+
+		
+	}
+
+
+
+
 
 	private void cargar(String value) {
 		// TODO Auto-generated method stub

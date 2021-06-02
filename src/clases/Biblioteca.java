@@ -218,5 +218,15 @@ public class Biblioteca implements Serializable {
 		
 		
 	}
+
+	public ArrayList<Persona> getSocios() {
+		return socios;
+	}
+
+	public ArrayList<Libro> getLibros() {
+		return libros;
+	}
+	
+	
 	
 }

@@ -29,14 +29,7 @@ public class Persona implements Serializable{
 		this.nombre = nombre;
 	}
 	
-	public String getApellido() {
-		return apellidos;
-	}
-	
-	public void setApellido(String apellido) {
-		this.apellidos = apellido;
-	}
-	
+
 	public int getDNI() {
 		return DNI;
 	}
