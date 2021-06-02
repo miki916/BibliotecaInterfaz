@@ -10,7 +10,7 @@ public class Libro implements Serializable {
 	private int ISBN;
 	private String autor;
 	private String titulo;
-//	private ArrayList<Ejemplar> ejemplares;
+	private ArrayList<Ejemplar> ejemplares;
 	
 	
 	public Libro(int ISBN, String autor, String titulo) {
@@ -18,7 +18,7 @@ public class Libro implements Serializable {
 		this.ISBN = ISBN;
 		this.autor = autor;
 		this.titulo = titulo;
-//		ejemplares = new ArrayList<Ejemplar>();
+		ejemplares = new ArrayList<Ejemplar>();
 		
 	}
 
@@ -46,70 +46,69 @@ public class Libro implements Serializable {
 		this.titulo = titulo;
 	}
 
-//	public ArrayList<Ejemplar> getEjemplares() {
-//		return ejemplares;
-//	}
-//
-//	public void setEjemplares(ArrayList<Ejemplar> ejemplares) {
-//		this.ejemplares = ejemplares;
-//	}
+	public ArrayList<Ejemplar> getEjemplares() {
+		return ejemplares;
+	}
+
+	public void setEjemplares(ArrayList<Ejemplar> ejemplares) {
+		this.ejemplares = ejemplares;
+	}
 
 	
-//	public void añadirEjemplar(Ejemplar e) {
-//		
-//		ejemplares.add(e);
-//		
-//	}
+	public void añadirEjemplar(Ejemplar e) {
+		
+		ejemplares.add(e);
+		
+	}
 	
-//	public Ejemplar getEjemplar() {
-//		
-//		Ejemplar e = ejemplares.get(0);
-//		ejemplares.remove(0);
-//		
-//		return e;
-//		
-//	}
-//	
-//	public String situacionLibro() {
-//		
-//		if(ejemplares.size() == 0) {
-//			
-//			return "Este libro no tiene ejemplares";
-//			
-//		}else {
-//			
-//			String mostrar= "Total de ejemplars: " + ejemplares.size() + "\n" + 
-//					"Ejemplares: " + "\n";
-//			
-//			return mostrar +  mostrarEjemplares();
-//			
-//		}
-//		
-//	}
+	public Ejemplar getEjemplar() {
+		
+		Ejemplar e = ejemplares.get(0);
+		ejemplares.remove(0);
+		
+		return e;
+		
+	}
 	
-//	public String mostrarEjemplares() {
-//		
-//	
-//		String mostrar = " ";
-//		
-//		for(Ejemplar e : ejemplares) {
-//			
-//			mostrar+=e.toString() + "\n";
-//			
-//		}
-//		
-//		return mostrar;
-//			
-//	}
+	public String situacionLibro() {
+		
+		if(ejemplares.size() == 0) {
+			
+			return "Este libro no tiene ejemplares";
+			
+		}else {
+			
+			String mostrar= "Total de ejemplars: " + ejemplares.size() + "\n" + 
+					"Ejemplares: " + "\n";
+			
+			return mostrar +  mostrarEjemplares();
+			
+		}
+		
+	}
+	
+	public String mostrarEjemplares() {
+		
+	
+		String mostrar = " ";
+		
+		for(Ejemplar e : ejemplares) {
+			
+			mostrar+=e.toString() + "\n";
+			
+		}
+		
+		return mostrar;
+			
+	}
 	
 
 	@Override
 	public String toString() {
 		return "ISBN:" + ISBN + "\n" + 
 				"Autor:" + autor + "\n" +
-				"Titulo:" + titulo + "\n"
-//				+				"Ejemplares:" + ejemplares.size()
-				;
+				"Titulo:" + titulo + "\n" +				
+				"Ejemplares:" + ejemplares.size();
 	}
 	
 	

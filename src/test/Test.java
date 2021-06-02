@@ -9,8 +9,7 @@ public class Test {
 	public static void main(String[] args) {
 		
 			Biblioteca b = new Biblioteca();
-			controladorPrincipal cp = new controladorPrincipal(new vistaPrincipal(),b);
-			 cp.go();
+			
 	}
 	
 }
